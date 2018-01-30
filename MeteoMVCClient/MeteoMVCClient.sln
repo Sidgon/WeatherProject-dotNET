@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeteoMVC", "MeteoMVC\MeteoMVC.csproj", "{E9E41D3E-855C-4352-A0C5-D16844C1D89F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO", "DTO\DTO.csproj", "{3EAEEE3F-547B-4FBF-B3CD-7ECD12791E9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{981450B4-55C7-42BC-877A-C4C0B69A3266}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E9E41D3E-855C-4352-A0C5-D16844C1D89F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9E41D3E-855C-4352-A0C5-D16844C1D89F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9E41D3E-855C-4352-A0C5-D16844C1D89F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9E41D3E-855C-4352-A0C5-D16844C1D89F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EAEEE3F-547B-4FBF-B3CD-7ECD12791E9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EAEEE3F-547B-4FBF-B3CD-7ECD12791E9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EAEEE3F-547B-4FBF-B3CD-7ECD12791E9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EAEEE3F-547B-4FBF-B3CD-7ECD12791E9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{981450B4-55C7-42BC-877A-C4C0B69A3266}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{981450B4-55C7-42BC-877A-C4C0B69A3266}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{981450B4-55C7-42BC-877A-C4C0B69A3266}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{981450B4-55C7-42BC-877A-C4C0B69A3266}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

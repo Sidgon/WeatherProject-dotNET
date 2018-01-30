@@ -1,0 +1,114 @@
+﻿@model IEnumerable<DTO.Location>
+
+@{
+    ViewBag.Title = "Location";
+}
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <style>
+                #map {
+                    height: 200px;
+                    width: 200%;
+                }
+                .myp {
+                    padding-top: 20px;
+                    font-size: 20px;
+                }
+                .mylabelandtext {
+                    padding-bottom: 10px;
+                }
+                footer {
+                    padding-top: 250px;
+                }
+            </style>
+        </head>
+
+        <body onload="initialize()", background="~/Content/images/Weather2.jpg">
+            <h1>Weatherforecast</h1>
+            <p class="myp">
+                Choose a marker
+            </p>
+            <div id="map" style="width: 1000px; height: 400px; padding: 20px;"></div>
+            <script></script>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    <p class="myp">
+                        Enter a location:
+                    </p>
+                    @using (Html.BeginForm("Location", "WeatherData", FormMethod.Post))
+            {
+                        <div class="mylabelandtext">
+                            @Html.Label("Name of City")
+                            @Html.TextBox("CityName", null,  new { @class = "form-control" })
+                        </div>
+                        <div class="mylabelandtext">
+                            @Html.Label("Plz")
+                            @Html.TextBox("PLZ", null, new { @class = "form-control" })
+                        </div>
+                        <input class="btn btn-default" type="submit" value="Add" />
+                    }
+
+                  </div>
+            </div>
+
+        </body>
+
+        </html>
+
+        <script>
+            var geocoder;
+            var map;
+            function initialize() {
+                geocoder = new google.maps.Geocoder();
+                var latlng = new google.maps.LatLng(46.279805, 7.539386);
+                var mapOptions = {
+                    zoom: 8,
+                    center: latlng
+                }
+                map = new google.maps.Map(document.getElementById('map'), mapOptions);
+                codeAddress();
+            }
+
+            function codeAddress() {
+                var counter = 0;
+                var locations = [];
+                var marker = new Array();
+                @foreach (var item in Model)
+                {
+                    String test = Html.DisplayFor(modelItem => item.Name) + ", " + Html.DisplayFor(modelItem => item.Plz);
+                <text>
+
+                geocoder.geocode({ 'address': '@Html.DisplayFor(modelItem => test)' }, function (results, status) {
+                    if (status == 'OK') {
+                        map.setCenter(results[0].geometry.location);
+                        marker[counter] = new google.maps.Marker({
+                            map: map,
+                            position: results[0].geometry.location
+                        });
+                        google.maps.event.addListener(marker[counter], "click", function () {
+                            window.open("@(Url.Action("WeatherData", "Weatherdata", new { id = item.Id}))");
+
+                        });
+                        counter++;
+                    } else {
+                        alert('Geocode was not successful for the following reason: ' + status);
+                    }
+                });
+                </text>
+                }
+            }
+        </script>
+
+        <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0pUBDD2-5CTgLxGUSKB42TuHKyw-sxpA&callback=initMap">
+
+        </script>
+
+
+
+
+
+
